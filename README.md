@@ -21,8 +21,8 @@ Route::post('pay/alipay/payto', function () {
     $gateway->setPartner(Config::get('pay.alipay.id'));
     $gateway->setKey(Config::get('pay.alipay.key'));
     $gateway->setSellerEmail(Config::get('pay.alipay.email'));
-    $gateway->setNotifyUrl($returnUrl);
-    $gateway->setReturnUrl($notifyUrl);
+    $gateway->setReturnUrl($returnUrl);
+    $gateway->setNotifyUrl($notifyUrl);
     # new order
     # db
     $order    = array(
