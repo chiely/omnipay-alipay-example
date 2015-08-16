@@ -77,7 +77,8 @@ Route::post('pay/alipay/notify', function () {
     $gateway->setKey(Config::get('pay.alipay.key'));
     $gateway->setSellerEmail(Config::get('pay.alipay.email'));
     $options['request_params'] = Input::all();
-    $options['ca_cert_path']   = storage_path('cert/cacert.pem');
+    //The following statement should be called when gateway is 'Alipay_WapExpress'
+    //$options['ca_cert_path']   = storage_path('cert/cacert.pem');
     $options['sign_type']      = 'MD5';
     $response                   = $gateway->completePurchase($options)->send();
     $debugData                = $response->getData();
